@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090909">
+<title>Electro BD | Premium Gadgets</title>
+<style>
+:root{--bg:#090909;--panel:#141414;--panel2:#1b1b1b;--gold:#d6ad55;--gold2:#f1d58a;--muted:#aaa;--line:#303030}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#f7f4ed;font-family:system-ui,-apple-system,"Noto Sans Bengali",sans-serif}
+a{color:inherit;text-decoration:none}.wrap{max-width:1120px;margin:auto;padding:0 18px}
+header{position:sticky;top:0;z-index:5;background:#090909ed;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{height:68px;display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{font-size:23px;font-weight:900;letter-spacing:.4px}.brand span{color:var(--gold)}.navright{display:flex;gap:10px;align-items:center}
+.btn{border:0;border-radius:10px;padding:11px 15px;font-weight:750;cursor:pointer;background:var(--gold);color:#17120a}.btn.secondary{background:#222;color:#fff;border:1px solid #444}.cartbtn{position:relative}.count{display:inline-grid;place-items:center;background:#fff;color:#111;border-radius:50%;width:20px;height:20px;font-size:12px;margin-left:5px}
+.hero{padding:48px 0 34px;background:radial-gradient(ellipse at 80% 15%,#4a3716 0,transparent 35%),linear-gradient(135deg,#101010,#080808)}
+.heroGrid{display:grid;grid-template-columns:1.1fr .9fr;gap:25px;align-items:center}.eyebrow{color:var(--gold2);font-size:13px;letter-spacing:2px;font-weight:800}.hero h1{font-size:clamp(34px,6vw,60px);line-height:1.13;margin:12px 0}.hero h1 span{color:var(--gold)}.hero p{color:#c7c2b8;line-height:1.8;max-width:560px}.heroArt{min-height:245px;border:1px solid #5e4b27;border-radius:22px;background:linear-gradient(145deg,#242018,#0f0f0f);display:grid;place-items:center;font-size:clamp(70px,14vw,130px);box-shadow:0 18px 60px #0008}
+.section{padding:32px 0}.sectionHead{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:18px}.section h2{margin:0;font-size:25px}.sectionHead p{color:var(--muted);margin:5px 0 0;font-size:14px}
+.tools{display:flex;gap:10px;margin:18px 0;flex-wrap:wrap}.search{flex:1;min-width:190px;background:#171717;border:1px solid #383838;color:white;padding:12px 14px;border-radius:10px;font:inherit}.filters{display:flex;gap:8px;overflow:auto;padding-bottom:5px}.filter{white-space:nowrap;background:#171717;color:#ddd;border:1px solid #383838;padding:9px 13px;border-radius:999px;cursor:pointer}.filter.active{background:var(--gold);color:#17120a;border-color:var(--gold)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.card{background:var(--panel);border:1px solid #292929;border-radius:15px;overflow:hidden;display:flex;flex-direction:column}.productPic{height:145px;display:grid;place-items:center;background:linear-gradient(145deg,#25221b,#111);font-size:62px}.cardBody{padding:13px;display:flex;flex-direction:column;flex:1}.tag{font-size:11px;color:var(--gold2);margin-bottom:6px}.card h3{font-size:16px;margin:0 0 7px}.desc{font-size:12px;color:#aaa;line-height:1.5;min-height:36px}.price{font-weight:850;color:var(--gold2);font-size:18px;margin:10px 0}.card .btn{width:100%;margin-top:auto}
+.note{border:1px solid #5a4825;background:#17140e;color:#e8d8b1;padding:13px 15px;border-radius:12px;font-size:13px;line-height:1.7}
+footer{border-top:1px solid var(--line);padding:25px 0;color:#aaa;font-size:13px}.footerrow{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.modal{display:none;position:fixed;inset:0;z-index:10;background:#000b;padding:16px;overflow:auto}.modal.show{display:grid;place-items:center}.dialog{width:min(560px,100%);background:#151515;border:1px solid #4a4029;border-radius:18px;padding:20px;max-height:90vh;overflow:auto}.dialog h2{margin:0 0 14px}.close{float:right;background:#292929;color:#fff;border:0;border-radius:8px;padding:7px 11px;cursor:pointer}.cartline{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #333}.qty button{background:#292929;color:#fff;border:0;padding:5px 10px;border-radius:6px;cursor:pointer}.field{width:100%;background:#202020;border:1px solid #444;border-radius:9px;padding:12px;color:white;font:inherit;margin:6px 0 12px}.label{font-size:13px;color:#ddd}.total{display:flex;justify-content:space-between;font-size:18px;font-weight:800;padding:15px 0}.empty{text-align:center;color:#aaa;padding:25px}
+@media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}.heroGrid{grid-template-columns:1fr}.heroArt{min-height:160px}.hero{padding-top:32px}}
+@media(max-width:420px){.wrap{padding:0 12px}.grid{gap:9px}.productPic{height:115px;font-size:50px}.cardBody{padding:10px}.card h3{font-size:14px}.brand{font-size:20px}.btn{padding:10px 11px}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav"><a class="brand" href="#">ELECTRO <span>BD</span></a><div class="navright"><button class="btn secondary" onclick="openAdmin()">পণ্য এডিট</button><button class="btn secondary cartbtn" onclick="openCart()">🛒 কার্ট <span class="count" id="cartCount">0</span></button></div></div></header>
+<main>
+<section class="hero"><div class="wrap heroGrid"><div><div class="eyebrow">TECH • STYLE • QUALITY</div><h1>স্মার্ট গ্যাজেট,<br><span>স্মার্ট জীবন।</span></h1><p>আপনার পছন্দের ইলেকট্রনিক্স ও গ্যাজেট এক জায়গায়। পণ্য বেছে নিন, কার্টে যোগ করুন এবং WhatsApp-এ অর্ডার পাঠান।</p><a class="btn" href="#products">পণ্য দেখুন ↓</a></div><div class="heroArt" aria-label="Electronics">🎧⌚📱</div></div></section>
+<section class="section wrap" id="products"><div class="sectionHead"><div><h2>জনপ্রিয় পণ্য</h2><p>Electro BD-এর পণ্য কালেকশন</p></div></div>
+<div class="tools"><input class="search" id="search" placeholder="পণ্যের নাম লিখে খুঁজুন..." oninput="renderProducts()"></div>
+<div class="filters" id="filters"></div><div class="grid" id="productGrid"></div>
+</section>
+<section class="section wrap"><div class="note"><b>অর্ডার ও ডেলিভারি:</b> আপাতত Cash on Delivery (COD) নেওয়ার জন্য WhatsApp-এ অর্ডার পাঠানো হবে। পণ্যের দাম, স্টক ও ডেলিভারি চার্জ অর্ডার নিশ্চিত করার আগে যাচাই করে নিন।</div></section>
+</main>
+
+<section class="section wrap" id="adminPanel" style="display:none">
+<div class="sectionHead"><div><h2>পণ্য ম্যানেজমেন্ট</h2><p>এই ব্রাউজারে পণ্যের নাম, দাম, বিবরণ ও আইকন বদলাতে পারবে</p></div><button class="btn secondary" onclick="closeAdmin()">বন্ধ</button></div>
+<div class="note" style="margin-bottom:14px">গুরুত্বপূর্ণ: এই এডিটগুলো আপাতত শুধু এই ডিভাইস/ব্রাউজারে সেভ হবে। সব কাস্টমারের জন্য অনলাইনে পরিবর্তন দেখাতে পরে shared database ও নিরাপদ admin login যুক্ত করতে হবে।</div>
+<div class="card" style="padding:15px;gap:8px">
+<label class="label">যে পণ্যটি এডিট করবে</label><select class="field" id="editProduct" onchange="loadProductForEdit()"></select>
+<label class="label">পণ্যের নাম</label><input class="field" id="editName" placeholder="পণ্যের নাম">
+<label class="label">দাম (টাকা)</label><input class="field" id="editPrice" type="number" min="0" placeholder="যেমন 1200">
+<label class="label">ক্যাটাগরি</label><input class="field" id="editCategory" placeholder="যেমন অডিও">
+<label class="label">পণ্যের বিবরণ</label><input class="field" id="editDesc" placeholder="ছোট বিবরণ">
+<label class="label">ছবি/আইকন</label><input class="field" id="editIcon" placeholder="যেমন 🎧 অথবা ছবির URL">
+<button class="btn" onclick="saveProductEdit()">পরিবর্তন সেভ করো</button>
+<button class="btn secondary" onclick="resetProductEdits()">আগের পণ্য ফিরিয়ে আনো</button>
+</div></section>
+
+<footer><div class="wrap footerrow"><div><b class="brand">ELECTRO <span>BD</span></b><div>আপনার বিশ্বস্ত গ্যাজেট শপ</div></div><div>যোগাযোগ: WhatsApp অর্ডার<br>© <span id="year"></span> Electro BD</div></div></footer>
+<div class="modal" id="cartModal" onclick="if(event.target===this)closeCart()"><div class="dialog"><button class="close" onclick="closeCart()">বন্ধ করুন ✕</button><h2>আপনার কার্ট</h2><div id="cartItems"></div><div class="total"><span>সর্বমোট</span><span id="cartTotal">৳০</span></div><h3>অর্ডারের তথ্য</h3><label class="label">আপনার নাম</label><input class="field" id="customerName" placeholder="নাম লিখুন"><label class="label">মোবাইল নম্বর</label><input class="field" id="customerPhone" inputmode="tel" placeholder="01XXXXXXXXX"><label class="label">ডেলিভারি ঠিকানা</label><textarea class="field" id="customerAddress" rows="3" placeholder="সম্পূর্ণ ঠিকানা লিখুন"></textarea><button class="btn" style="width:100%" onclick="sendOrder()">WhatsApp-এ অর্ডার পাঠান</button><p style="color:#aaa;font-size:12px;line-height:1.6">অর্ডার পাঠানোর আগে নিচের কোডে দোকানের WhatsApp নম্বর বসাতে হবে।</p></div></div>
+<script>
+// দোকানের WhatsApp নম্বর এখানে বসান: বাংলাদেশের নম্বর 880 দিয়ে শুরু হবে, + বা 0 ছাড়া।
+const STORE_WHATSAPP = "8801611372334";
+const defaultProducts = [
+{id:1,name:"ওয়্যারলেস হেডফোন",category:"অডিও",price:1250,icon:"🎧",desc:"দৈনন্দিন ব্যবহারের জন্য ওয়্যারলেস হেডফোন"},
+{id:2,name:"স্মার্ট ওয়াচ",category:"স্মার্ট গ্যাজেট",price:1850,icon:"⌚",desc:"স্টাইলিশ স্মার্ট ওয়াচ"},
+{id:3,name:"ব্লুটুথ স্পিকার",category:"অডিও",price:990,icon:"🔊",desc:"ছোট আকারের পোর্টেবল স্পিকার"},
+{id:4,name:"ফাস্ট চার্জার",category:"অ্যাক্সেসরিজ",price:550,icon:"🔌",desc:"দ্রুত চার্জিংয়ের জন্য চার্জার"},
+{id:5,name:"ইয়ারবাড",category:"অডিও",price:1450,icon:"🎵",desc:"কমপ্যাক্ট ট্রু ওয়্যারলেস ইয়ারবাড"},
+{id:6,name:"USB-C কেবল",category:"অ্যাক্সেসরিজ",price:250,icon:"🔗",desc:"দৈনন্দিন ব্যবহারের চার্জিং কেবল"},
+{id:7,name:"গেমিং কন্ট্রোলার",category:"গেমিং",price:2200,icon:"🎮",desc:"গেম খেলার জন্য কন্ট্রোলার"},
+{id:8,name:"পাওয়ার ব্যাংক",category:"অ্যাক্সেসরিজ",price:1600,icon:"🔋",desc:"ভ্রমণে কাজে লাগবে এমন পাওয়ার ব্যাংক"}
+]; 
+let products = loadSavedProducts();
+let cart={},active="সব";
+function loadSavedProducts(){try{return JSON.parse(localStorage.getItem("electroBDProducts"))||defaultProducts.map(p=>({...p}))}catch(e){return defaultProducts.map(p=>({...p}))}}
+function saveProducts(){localStorage.setItem("electroBDProducts",JSON.stringify(products))}
+
+const money=n=>"৳"+Number(n).toLocaleString("bn-BD");
+function renderFilters(){let cats=["সব",...new Set(products.map(p=>p.category))];document.getElementById("filters").innerHTML=cats.map(c=>`<button class="filter ${active===c?'active':''}" onclick="active='${c}';renderFilters();renderProducts()">${c}</button>`).join("")}
+function renderProducts(){let q=document.getElementById("search").value.toLowerCase();let list=products.filter(p=>(active==="সব"||p.category===active)&&(p.name.toLowerCase().includes(q)||p.category.toLowerCase().includes(q)));document.getElementById("productGrid").innerHTML=list.length?list.map(p=>`<article class="card"><div class="productPic">${String(p.icon).startsWith("http")?`<img src="${p.icon}" alt="${p.name}" style="max-width:90%;max-height:125px;object-fit:contain">`:p.icon}</div><div class="cardBody"><div class="tag">${p.category}</div><h3>${p.name}</h3><div class="desc">${p.desc}</div><div class="price">${money(p.price)}</div><button class="btn" onclick="addToCart(${p.id})">কার্টে যোগ করুন</button></div></article>`).join(""):'<div class="empty">কোনো পণ্য পাওয়া যায়নি।</div>'}
+function addToCart(id){cart[id]=(cart[id]||0)+1;updateCount()}
+function updateCount(){document.getElementById("cartCount").textContent=Object.values(cart).reduce((a,b)=>a+b,0)}
+function openCart(){document.getElementById("cartModal").classList.add("show");renderCart()}
+function closeCart(){document.getElementById("cartModal").classList.remove("show")}
+function renderCart(){let items=products.filter(p=>cart[p.id]);document.getElementById("cartItems").innerHTML=items.length?items.map(p=>`<div class="cartline"><div>${p.icon} <b>${p.name}</b><br><small>${money(p.price)} × ${cart[p.id]}</small></div><div class="qty"><button onclick="changeQty(${p.id},-1)">−</button> ${cart[p.id]} <button onclick="changeQty(${p.id},1)">+</button></div></div>`).join(""):'<div class="empty">আপনার কার্ট এখন খালি।</div>';document.getElementById("cartTotal").textContent=money(items.reduce((s,p)=>s+p.price*cart[p.id],0))}
+function changeQty(id,d){cart[id]=(cart[id]||0)+d;if(cart[id]<=0)delete cart[id];updateCount();renderCart()}
+function sendOrder(){let items=products.filter(p=>cart[p.id]);if(!items.length){alert("আগে কার্টে পণ্য যোগ করুন।");return}let name=document.getElementById("customerName").value.trim(),phone=document.getElementById("customerPhone").value.trim(),address=document.getElementById("customerAddress").value.trim();if(!name||!phone||!address){alert("নাম, মোবাইল নম্বর ও ঠিকানা পূরণ করুন।");return}if(STORE_WHATSAPP.includes("X")){alert("ওয়েবসাইটের কোডে STORE_WHATSAPP-এর জায়গায় আপনার WhatsApp নম্বর বসান। যেমন: 88017XXXXXXXX");return}let total=items.reduce((s,p)=>s+p.price*cart[p.id],0);let msg=`নতুন অর্ডার - Electro BD%0Aনাম: ${name}%0Aফোন: ${phone}%0Aঠিকানা: ${address}%0A%0াপণ্য:%0A`+items.map(p=>`- ${p.name} × ${cart[p.id]} = ${money(p.price*cart[p.id])}`).join("%0A")+`%0Aসর্বমোট: ${money(total)}%0Aপেমেন্ট: Cash on Delivery`;window.open(`https://wa.me/${STORE_WHATSAPP}?text=${encodeURIComponent(decodeURIComponent(msg))}`,"_blank")}
+
+function openAdmin(){document.getElementById("adminPanel").style.display="block";document.getElementById("adminPanel").scrollIntoView({behavior:"smooth"});let s=document.getElementById("editProduct");s.innerHTML=products.map(p=>`<option value="${p.id}">${p.name}</option>`).join("");loadProductForEdit()}
+function closeAdmin(){document.getElementById("adminPanel").style.display="none"}
+function loadProductForEdit(){let p=products.find(x=>x.id===Number(document.getElementById("editProduct").value))||products[0];if(!p)return;document.getElementById("editName").value=p.name;document.getElementById("editPrice").value=p.price;document.getElementById("editCategory").value=p.category;document.getElementById("editDesc").value=p.desc;document.getElementById("editIcon").value=p.icon}
+function saveProductEdit(){let id=Number(document.getElementById("editProduct").value),p=products.find(x=>x.id===id);if(!p)return;let name=document.getElementById("editName").value.trim(),price=Number(document.getElementById("editPrice").value),category=document.getElementById("editCategory").value.trim(),desc=document.getElementById("editDesc").value.trim(),icon=document.getElementById("editIcon").value.trim();if(!name||!category||!Number.isFinite(price)||price<0||!icon){alert("নাম, সঠিক দাম, ক্যাটাগরি ও ছবি/আইকন দিন।");return}Object.assign(p,{name,price,category,desc,icon});saveProducts();renderFilters();renderProducts();document.getElementById("editProduct").innerHTML=products.map(x=>`<option value="${x.id}">${x.name}</option>`).join("");document.getElementById("editProduct").value=id;alert("এই ব্রাউজারে পণ্যের তথ্য সেভ হয়েছে।")}
+function resetProductEdits(){if(!confirm("আপনার করা পরিবর্তন মুছে আগের পণ্য ফিরিয়ে আনবেন?"))return;products=defaultProducts.map(p=>({...p}));saveProducts();renderFilters();renderProducts();document.getElementById("editProduct").innerHTML=products.map(x=>`<option value="${x.id}">${x.name}</option>`).join("");loadProductForEdit()}
+
+document.getElementById("year").textContent=new Date().getFullYear();renderFilters();renderProducts();
+</script>
+</body></html>
